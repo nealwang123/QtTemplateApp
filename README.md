@@ -159,7 +159,7 @@ QMAKE_CXXFLAGS_RELEASE += /Od
 QMAKE_LFLAGS_RELEASE += /DEBUG
 ```
 
-# QDebug统一控制
+## QDebug统一控制
 
 ```
 DEFINES +=QT_NO_DEBUG_OUTPUT # disable debug output
