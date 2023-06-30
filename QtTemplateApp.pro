@@ -2,6 +2,9 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+TARGET      = QtTemplateApp
+TEMPLATE    = app
+
 #自定义程序信息
 #程序版本
 VERSION = 2035.10.01
@@ -32,12 +35,37 @@ win32 {
 CONFIG += c++11
 CONFIG += console
 
+# QMAKE *.pro-file: release模式下禁用优化并开启调试功能
+# gcc
+#QMAKE_CXXFLAGS_RELEASE += -O0 -g
+#QMAKE_CFLAGS_RELEASE += -O0 -g
+#QMAKE_LFLAGS_RELEASE =
+# msvc(VS调试模式，在VS2015 + QT5.6.3环境下调试通过)
+#QMAKE_CXXFLAGS_RELEASE += /Zi
+#QMAKE_CXXFLAGS_RELEASE += /Od
+#QMAKE_LFLAGS_RELEASE += /DEBUG
+
+
+# DEFINES +=QT_NO_DEBUG_OUTPUT # disable debug output
+#DEFINES -=QT_NO_DEBUG_OUTPUT # enable debug output
+
 #禁用qdebug打印输出
 #DEFINES += QT_NO_DEBUG_OUTPUT
 
 #设置Release模式可调试
 QMAKE_CXXFLAGS_RELEASE = $$QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO
 QMAKE_LFLAGS_RELEASE = $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO
+
+#以下为pri引入依赖文件
+#INCLUDEPATH += $$PWD/PackTool
+#include( $$PWD/PackTool/PackTool.pri )
+
+#引入第三方库
+#INCLUDEPATH += $$PWD/thirdpartylib/libqrencode/include
+#DEPENDPATH += $$PWD/thirdpartylib/libqrencode/include
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/thirdpartylib/libqrencode/lib/ -lqrencode
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/thirdpartylib/libqrencode/lib/ -lqrencoded
+
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
