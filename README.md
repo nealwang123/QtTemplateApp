@@ -3,7 +3,8 @@ qt项目模板，qmake，持续更新完善
 Pro文件为qt项目管理文件，可以满足我们开发过程中的项目配置需求。本文旨在生成一个功能完善的Qt项目文件模板，重点是pro文件通用配置，希望最终能够拿来就用，为各位同仁节省更多时间专注于业务开发。有了此项目你只需放开或者屏蔽一些内容即可创建你想要的项目。
 
 # 开源地址
-github地址：
+github地址：https://github.com/nealwang123/QtTemplateApp.git
+
 gitee地址：https://gitee.com/nealwang2021/qt-template-app.git
 
 # Pro文件关键字简要介绍
